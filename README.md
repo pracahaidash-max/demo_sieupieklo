@@ -7,10 +7,12 @@ dla cukierni Się Upiekło Wola. Astro (statyczny build) + Decap CMS (Warstwa B)
 
 - [ ] **E-mail** — brak adresu e-mail na Instagramie/Mapach, tylko telefon
       (796 039 089). Uzupełnić w `src/content/site.yaml` (`firma.email`).
-- [ ] **Prawdziwe zdjęcia** — sekcja „Realizacje” jest teraz typograficzną
-      mozaiką (kolory + opisy), bez zdjęć, żeby nie podszywać się pod prawdziwe
-      zdjęcia produktów bez zgody klienta. Po akceptacji projektu podmienić na
-      realne fotografie z Instagrama (@cukiernia_ciasta_torty) lub nowe zdjęcia.
+- [x] **Zdjęcia** — sekcja „Realizacje" i hero używają 11 realnych zdjęć
+      wyciętych z profilu Instagram @cukiernia_ciasta_torty (właściciela tej
+      strony) — zapisane w `public/images/realizacje/`. Warto podmienić na
+      zdjęcia w wyższej rozdzielczości prosto z telefonu klienta, gdy będą
+      dostępne — obecne są przycięte ze zrzutów ekranu, więc jakość jest
+      ograniczona.
 - [ ] Domena i hosting — jak w poprzednich projektach: Netlify (Forms +
       Git Gateway pod Decap CMS bez dodatkowego backendu).
 
