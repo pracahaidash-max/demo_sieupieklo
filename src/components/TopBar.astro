@@ -1,0 +1,55 @@
+---
+interface Props {
+  telefon: string;
+  ocena: string;
+  liczbaOpinii: number;
+}
+const { telefon, ocena, liczbaOpinii } = Astro.props;
+const maTelefon = !telefon.startsWith("TODO");
+---
+
+<div class="topbar">
+  <div class="wrap row">
+    <span class="hours">Wt–Nd, 10:00–18:00 · poniedziałek zamknięte</span>
+    <span class="right">
+      <span class="rating">★ {ocena} ({liczbaOpinii} opinii)</span>
+      {maTelefon && <a href={`tel:${telefon.replace(/\s+/g, "")}`}>{telefon}</a>}
+    </span>
+  </div>
+</div>
+
+<style>
+  .topbar {
+    background: var(--petrol-deep);
+    color: rgba(253, 244, 232, 0.85);
+    font-size: 0.8rem;
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 0.5rem;
+  }
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+  .rating {
+    color: #f0cf8f;
+    font-weight: 600;
+  }
+  .right a {
+    text-decoration: none;
+    color: inherit;
+  }
+  .right a:hover {
+    color: #fff;
+  }
+  @media (max-width: 640px) {
+    .hours {
+      display: none;
+    }
+  }
+</style>

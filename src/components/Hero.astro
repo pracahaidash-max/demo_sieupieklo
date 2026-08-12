@@ -1,0 +1,93 @@
+---
+interface Zaufanie {
+  liczba: string;
+  opis: string;
+}
+interface Props {
+  eyebrow: string;
+  naglowek: string;
+  podtytul: string;
+  ctaGlowne: string;
+  ctaDrugie: string;
+  zaufanie: Zaufanie[];
+}
+const { eyebrow, naglowek, podtytul, ctaGlowne, ctaDrugie, zaufanie } = Astro.props;
+---
+
+<section class="hero" id="top">
+  <div class="wrap hero-inner">
+    <span class="eyebrow">{eyebrow}</span>
+    <h1>{naglowek}</h1>
+    <p class="lede">{podtytul}</p>
+    <div class="cta-row">
+      <a href="#kontakt" class="btn btn-primary">{ctaGlowne}</a>
+      <a href="#opinie" class="btn btn-secondary">{ctaDrugie}</a>
+    </div>
+
+    <dl class="trust">
+      {zaufanie.map((t) => (
+        <div class="trust-item">
+          <dt>{t.liczba}</dt>
+          <dd>{t.opis}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+    background: radial-gradient(900px 420px at 88% -8%, var(--raspberry-soft) 0%, transparent 62%), var(--cream);
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.1rem;
+  }
+  h1 {
+    font-size: clamp(2.1rem, 4.4vw, 3.35rem);
+    max-width: 18ch;
+  }
+  .lede {
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    max-width: 52ch;
+  }
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    margin-top: 0.6rem;
+  }
+  .trust {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 2.5rem;
+    margin: 3rem 0 0;
+    padding-top: 2.25rem;
+    border-top: 1px solid var(--line);
+    width: 100%;
+  }
+  .trust-item dt {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.9rem;
+    color: var(--raspberry-deep);
+  }
+  .trust-item dd {
+    margin: 0.15rem 0 0;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    max-width: 18ch;
+  }
+  @media (max-width: 640px) {
+    .trust {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+  }
+</style>

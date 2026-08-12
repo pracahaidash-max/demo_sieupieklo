@@ -1,0 +1,97 @@
+---
+interface Pozycja {
+  nazwa: string;
+  opis: string;
+}
+interface Props {
+  realizacje: Pozycja[];
+}
+const { realizacje } = Astro.props;
+const palety = ["light", "dark", "light", "light", "dark", "light"];
+---
+
+<section id="realizacje" class="realizacje">
+  <div class="wrap">
+    <span class="eyebrow">Realizacje</span>
+    <h2>Kilka naszych ostatnich tortów</h2>
+    <p class="intro">Prawdziwe zdjęcia trafią tutaj po stronie klienta — to miejsce na galerię z Instagrama i Google.</p>
+
+    <div class="mosaic">
+      {realizacje.map((r, i) => (
+        <div class={`tile ${palety[i % palety.length]}`}>
+          <span class="tile-icon">🍰</span>
+          <h3>{r.nazwa}</h3>
+          <p>{r.opis}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .realizacje {
+    background: var(--surface);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  h2 {
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    margin-top: 0.6rem;
+    max-width: 22ch;
+  }
+  .intro {
+    margin-top: 0.9rem;
+    color: var(--ink-soft);
+  }
+  .mosaic {
+    margin-top: 2.75rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  .tile {
+    border-radius: 16px;
+    padding: 1.75rem 1.5rem;
+    min-height: 190px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .tile-icon {
+    font-size: 1.6rem;
+  }
+  .tile h3 {
+    font-size: 1.05rem;
+  }
+  .tile p {
+    font-size: 0.88rem;
+  }
+  .tile.light {
+    background: var(--raspberry-soft);
+  }
+  .tile.light h3 {
+    color: var(--raspberry-deep);
+  }
+  .tile.light p {
+    color: var(--ink-soft);
+  }
+  .tile.dark {
+    background: var(--petrol-deep);
+  }
+  .tile.dark h3 {
+    color: #fdf4e8;
+  }
+  .tile.dark p {
+    color: rgba(253, 244, 232, 0.78);
+  }
+  @media (max-width: 920px) {
+    .mosaic {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 580px) {
+    .mosaic {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

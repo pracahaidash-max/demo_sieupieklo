@@ -1,0 +1,95 @@
+---
+interface Kategoria {
+  nazwa: string;
+  opis: string;
+  pozycje: string[];
+}
+interface Props {
+  oferta: Kategoria[];
+}
+const { oferta } = Astro.props;
+---
+
+<section id="oferta">
+  <div class="wrap">
+    <span class="eyebrow">Oferta</span>
+    <h2>Coś słodkiego na każdą okazję</h2>
+    <p class="intro">Od codziennych wypieków po wielopiętrowe torty weselne — wszystko pieczone ręcznie, na miejscu.</p>
+
+    <div class="grid">
+      {oferta.map((kat) => (
+        <article class="card">
+          <h3>{kat.nazwa}</h3>
+          <p class="desc">{kat.opis}</p>
+          <ul>
+            {kat.pozycje.map((p) => <li>{p}</li>)}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  h2 {
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    margin-top: 0.6rem;
+    max-width: 20ch;
+  }
+  .intro {
+    margin-top: 0.9rem;
+    color: var(--ink-soft);
+  }
+  .grid {
+    margin-top: 2.75rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 1.5rem 1.4rem 1.75rem;
+  }
+  .card h3 {
+    font-size: 1.1rem;
+  }
+  .desc {
+    margin-top: 0.4rem;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+  .card ul {
+    margin: 1.1rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.5rem;
+  }
+  .card li {
+    font-size: 0.88rem;
+    padding-left: 1.1rem;
+    position: relative;
+  }
+  .card li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--raspberry);
+  }
+  @media (max-width: 980px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 560px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

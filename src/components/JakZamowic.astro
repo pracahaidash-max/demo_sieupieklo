@@ -1,0 +1,77 @@
+---
+interface Krok {
+  krok: string;
+  opis: string;
+}
+interface Props {
+  kroki: Krok[];
+}
+const { kroki } = Astro.props;
+---
+
+<section class="jz">
+  <div class="wrap">
+    <span class="eyebrow">Jak zamówić</span>
+    <h2>Od telefonu do odbioru — trzy kroki</h2>
+
+    <ol class="steps">
+      {kroki.map((k, i) => (
+        <li>
+          <span class="num">{String(i + 1).padStart(2, "0")}</span>
+          <h3>{k.krok}</h3>
+          <p>{k.opis}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .jz {
+    background: var(--petrol-deep);
+    color: #fdf4e8;
+  }
+  .jz .eyebrow {
+    color: #f0cf8f;
+  }
+  h2 {
+    color: #fff;
+    font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+    margin-top: 0.6rem;
+    max-width: 24ch;
+  }
+  .steps {
+    margin: 2.75rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+  }
+  .steps li {
+    padding-top: 1.75rem;
+    border-top: 2px solid var(--gold);
+  }
+  .num {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: #f0cf8f;
+    font-size: 0.95rem;
+  }
+  .steps h3 {
+    color: #fff;
+    margin-top: 0.6rem;
+    font-size: 1.1rem;
+  }
+  .steps p {
+    margin-top: 0.5rem;
+    font-size: 0.92rem;
+    color: rgba(253, 244, 232, 0.78);
+  }
+  @media (max-width: 760px) {
+    .steps {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>

@@ -1,0 +1,65 @@
+---
+interface Opinia {
+  autor: string;
+  tresc: string;
+}
+interface Props {
+  opinie: Opinia[];
+  ocena: string;
+  liczbaOpinii: number;
+}
+const { opinie, ocena, liczbaOpinii } = Astro.props;
+---
+
+<section id="opinie">
+  <div class="wrap">
+    <span class="eyebrow">Opinie klientów</span>
+    <h2>★ {ocena} na Google, {liczbaOpinii} opinii</h2>
+
+    <div class="grid">
+      {opinie.map((o) => (
+        <blockquote class="card">
+          <p>„{o.tresc}”</p>
+          <footer>— {o.autor}</footer>
+        </blockquote>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  h2 {
+    font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+    margin-top: 0.6rem;
+    max-width: 26ch;
+  }
+  .grid {
+    margin-top: 2.75rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  .card {
+    margin: 0;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 1.6rem 1.5rem;
+  }
+  .card p {
+    font-size: 0.96rem;
+    color: var(--ink);
+    font-style: italic;
+  }
+  .card footer {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--petrol);
+  }
+  @media (max-width: 920px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

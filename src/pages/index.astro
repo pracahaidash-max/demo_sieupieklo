@@ -1,0 +1,56 @@
+---
+import fs from "node:fs";
+import path from "node:path";
+import yaml from "js-yaml";
+import Layout from "../layouts/Layout.astro";
+import TopBar from "../components/TopBar.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Oferta from "../components/Oferta.astro";
+import Realizacje from "../components/Realizacje.astro";
+import JakZamowic from "../components/JakZamowic.astro";
+import Opinie from "../components/Opinie.astro";
+import Kontakt from "../components/Kontakt.astro";
+import Footer from "../components/Footer.astro";
+
+const raw = fs.readFileSync(
+  path.resolve("./src/content/site.yaml"),
+  "utf-8"
+);
+const site = yaml.load(raw) as any;
+---
+
+<Layout
+  title={`${site.firma.nazwa} — cukiernia, torty na zamówienie`}
+  description={site.hero.podtytul}
+  demo={site.demo}
+>
+  <TopBar
+    telefon={site.firma.telefon}
+    ocena={site.firma.ocena}
+    liczbaOpinii={site.firma.liczba_opinii}
+  />
+  <Header nazwa={site.firma.nazwa} />
+  <Hero
+    eyebrow={site.hero.eyebrow}
+    naglowek={site.hero.naglowek}
+    podtytul={site.hero.podtytul}
+    ctaGlowne={site.hero.cta_glowne}
+    ctaDrugie={site.hero.cta_drugie}
+    zaufanie={site.zaufanie}
+  />
+  <Oferta oferta={site.oferta} />
+  <Realizacje realizacje={site.realizacje} />
+  <JakZamowic kroki={site.jak_zamowic} />
+  <Opinie
+    opinie={site.opinie}
+    ocena={site.firma.ocena}
+    liczbaOpinii={site.firma.liczba_opinii}
+  />
+  <Kontakt
+    naglowek={site.kontakt.naglowek}
+    podtytul={site.kontakt.podtytul}
+    firma={site.firma}
+  />
+  <Footer firma={site.firma} />
+</Layout>

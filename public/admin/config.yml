@@ -1,0 +1,88 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Wymaga Netlify Identity + Git Gateway włączonych w panelu Netlify
+# (Site settings → Identity → Enable, oraz Services → Git Gateway → Enable).
+# Zaproś klienta jako użytkownika Identity, żeby mógł się zalogować na /admin.
+
+publish_mode: simple
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "site"
+    label: "Strona — treść"
+    files:
+      - name: "site"
+        label: "Cała strona"
+        file: "src/content/site.yaml"
+        fields:
+          - label: "Dane firmy"
+            name: "firma"
+            widget: "object"
+            fields:
+              - { label: "Nazwa", name: "nazwa", widget: "string" }
+              - { label: "Ulica", name: "adres_ulica", widget: "string" }
+              - { label: "Miasto", name: "adres_miasto", widget: "string" }
+              - { label: "Telefon", name: "telefon", widget: "string" }
+              - { label: "E-mail", name: "email", widget: "string" }
+              - { label: "Instagram (link)", name: "instagram", widget: "string" }
+              - { label: "Ocena Google", name: "ocena", widget: "string" }
+              - { label: "Liczba opinii", name: "liczba_opinii", widget: "number" }
+
+          - label: "Sekcja główna (hero)"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Nadtytuł", name: "eyebrow", widget: "string" }
+              - { label: "Nagłówek", name: "naglowek", widget: "string" }
+              - { label: "Podtytuł", name: "podtytul", widget: "text" }
+              - { label: "Tekst przycisku głównego", name: "cta_glowne", widget: "string" }
+              - { label: "Tekst przycisku drugiego", name: "cta_drugie", widget: "string" }
+
+          - label: "Pasek zaufania"
+            name: "zaufanie"
+            widget: "list"
+            fields:
+              - { label: "Liczba/ikona", name: "liczba", widget: "string" }
+              - { label: "Opis", name: "opis", widget: "string" }
+
+          - label: "Jak zamówić (kroki)"
+            name: "jak_zamowic"
+            widget: "list"
+            fields:
+              - { label: "Krok", name: "krok", widget: "string" }
+              - { label: "Opis", name: "opis", widget: "string" }
+
+          - label: "Oferta (kategorie)"
+            name: "oferta"
+            widget: "list"
+            fields:
+              - { label: "Nazwa kategorii", name: "nazwa", widget: "string" }
+              - { label: "Opis", name: "opis", widget: "string" }
+              - label: "Pozycje"
+                name: "pozycje"
+                widget: "list"
+                field: { label: "Pozycja", name: "pozycja", widget: "string" }
+
+          - label: "Realizacje (galeria)"
+            name: "realizacje"
+            widget: "list"
+            fields:
+              - { label: "Nazwa", name: "nazwa", widget: "string" }
+              - { label: "Opis", name: "opis", widget: "string" }
+
+          - label: "Opinie klientów"
+            name: "opinie"
+            widget: "list"
+            fields:
+              - { label: "Autor", name: "autor", widget: "string" }
+              - { label: "Treść", name: "tresc", widget: "text" }
+
+          - label: "Sekcja kontaktowa"
+            name: "kontakt"
+            widget: "object"
+            fields:
+              - { label: "Nagłówek", name: "naglowek", widget: "string" }
+              - { label: "Podtytuł", name: "podtytul", widget: "text" }

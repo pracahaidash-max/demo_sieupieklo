@@ -1,0 +1,88 @@
+demo: true # ustaw na false i usuń znak wodny przed finalną wysyłką po zapłacie
+
+firma:
+  nazwa: "Się Upiekło Wola"
+  adres_ulica: "ul. Wawrzyszewska 9"
+  adres_miasto: "Warszawa (Wola)"
+  telefon: "796 039 089"
+  email: "TODO — uzupełnić e-mail (brak na Instagramie/Mapach)"
+  instagram: "https://instagram.com/cukiernia_ciasta_torty"
+  ocena: "5,0"
+  liczba_opinii: 93
+
+hero:
+  eyebrow: "Cukiernia rzemieślnicza · Warszawa Wola"
+  naglowek: "Torty i wypieki, które robią wrażenie"
+  podtytul: "Torty na zamówienie, świeże wypieki codziennie i słodkie stoły na Twoje wydarzenie — wszystko robione ręcznie, na miejscu, na Wawrzyszewskiej."
+  cta_glowne: "Zamów tort"
+  cta_drugie: "Zobacz opinie klientów"
+
+zaufanie:
+  - liczba: "5,0★"
+    opis: "ocena na Google (93 opinie)"
+  - liczba: "100%"
+    opis: "wypieków robionych ręcznie, na miejscu"
+  - liczba: "🐾"
+    opis: "lokal przyjazny czworonogom"
+
+jak_zamowic:
+  - krok: "Zadzwoń albo napisz"
+    opis: "Powiedz na jaką okazję i ile osób — urodziny, wesele, chrzest, słodki stół."
+  - krok: "Ustalamy smak i wygląd"
+    opis: "Dobieramy smak, wielkość i dekorację do Twojego pomysłu i budżetu."
+  - krok: "Odbiór w cukierni"
+    opis: "Świeży tort czeka na Ciebie na Wawrzyszewskiej w umówionym terminie."
+
+oferta:
+  - nazwa: "Torty okolicznościowe"
+    opis: "Urodziny, imieniny, dowolny motyw — dla dzieci i dorosłych."
+    pozycje:
+      - "Torty tematyczne dla dzieci"
+      - "Torty urodzinowe dla dorosłych"
+      - "Torty na chrzest i komunię"
+      - "Personalizowane dekoracje i napisy"
+  - nazwa: "Torty weselne"
+    opis: "Wielopiętrowe kompozycje na największy dzień."
+    pozycje:
+      - "Torty wielopiętrowe"
+      - "Dekoracje z kwiatów i makaroników"
+      - "Degustacja przed zamówieniem"
+  - nazwa: "Słodkie stoły"
+    opis: "Kompletna słodka oprawa eventu, dowieziona na miejsce."
+    pozycje:
+      - "Mini deserki i tartaletki"
+      - "Cake pops i makaroniki"
+      - "Bezy i pavlova"
+  - nazwa: "Wypieki codzienne"
+    opis: "Świeże na miejscu, dostępne bez zamawiania z wyprzedzeniem."
+    pozycje:
+      - "Cynamonki"
+      - "Jagodzianki sezonowe"
+      - "Croissanty"
+      - "Ciasta na wagę"
+
+realizacje:
+  - nazwa: "Tort tiramisu"
+    opis: "Lekki biszkopt, mascarpone, kawa — klasyka w nowej odsłonie."
+  - nazwa: "Tort marakuja-mango"
+    opis: "Owocowy, orzeźwiający, z nutą egzotyki."
+  - nazwa: "Torty tematyczne dla dzieci"
+    opis: "Ulubione bajki i bohaterowie na urodzinowym torcie."
+  - nazwa: "Torty weselne wielopiętrowe"
+    opis: "Eleganckie kompozycje zdobione żywymi kwiatami."
+  - nazwa: "Cynamonki na świeżo"
+    opis: "Miękkie, aromatyczne — pieczone kilka razy dziennie."
+  - nazwa: "Desery na słodki stół"
+    opis: "Makaroniki, cake popsy, mini tarty owocowe."
+
+opinie:
+  - autor: "Ewa Rubinkiewicz"
+    tresc: "Cudowne miejsce na słodką przerwę! W Się Upiekło na Woli wszystko jest przepyszne. Cynamonki miękkie, świeże i pełne smaku."
+  - autor: "Nadiia Kryshtof"
+    tresc: "Próbowaliśmy tortu tiramisu na urodzinach u znajomych i bardzo nam smakował. Był lekki, świeży i przepyszny. Na pewno jeszcze skorzystamy."
+  - autor: "Justyna Lubiak"
+    tresc: "Zamawiałam tort na ostatnią sobotę — jestem zadowolona i mogę szczerze polecić to miejsce."
+
+kontakt:
+  naglowek: "Zamów swój tort"
+  podtytul: "Napisz czego potrzebujesz albo zadzwoń bezpośrednio — odpowiadamy szybko."

@@ -1,0 +1,83 @@
+---
+interface Props {
+  nazwa: string;
+}
+const { nazwa } = Astro.props;
+---
+
+<header class="header">
+  <div class="wrap bar">
+    <a href="#top" class="brand">
+      <span class="brand-mark">🍰</span>
+      <span class="brand-name">{nazwa}</span>
+    </a>
+
+    <nav class="nav" aria-label="Nawigacja główna">
+      <a href="#oferta">Oferta</a>
+      <a href="#realizacje">Realizacje</a>
+      <a href="#opinie">Opinie</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+
+    <a href="#kontakt" class="btn btn-primary call">Zamów tort</a>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: rgba(250, 245, 238, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 0.9rem;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    color: var(--raspberry-deep);
+  }
+  .brand-mark {
+    font-size: 1.4rem;
+  }
+  .brand-name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.05rem;
+  }
+  .nav {
+    display: flex;
+    gap: 1.75rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  .nav a {
+    text-decoration: none;
+    color: var(--ink-soft);
+  }
+  .nav a:hover {
+    color: var(--raspberry-deep);
+  }
+  .call {
+    padding: 0.6rem 1.15rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+  @media (max-width: 820px) {
+    .nav {
+      display: none;
+    }
+    .brand-name {
+      display: none;
+    }
+  }
+</style>
