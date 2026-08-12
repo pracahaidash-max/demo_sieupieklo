@@ -13,6 +13,7 @@ import JakZamowic from "../components/JakZamowic.astro";
 import Opinie from "../components/Opinie.astro";
 import Kontakt from "../components/Kontakt.astro";
 import Footer from "../components/Footer.astro";
+import Scallop from "../components/Scallop.astro";
 
 const raw = fs.readFileSync(
   path.resolve("./src/content/site.yaml"),
@@ -42,17 +43,22 @@ const site = yaml.load(raw) as any;
   />
   <Oferta oferta={site.oferta} />
   <Udogodnienia pozycje={site.udogodnienia} />
+  <Scallop color="#ffffff" background="var(--cream)" />
   <Realizacje realizacje={site.realizacje} />
+  <Scallop color="var(--petrol-deep)" background="#ffffff" />
   <JakZamowic kroki={site.jak_zamowic} />
+  <Scallop color="var(--cream)" background="var(--petrol-deep)" />
   <Opinie
     opinie={site.opinie}
     ocena={site.firma.ocena}
     liczbaOpinii={site.firma.liczba_opinii}
   />
+  <Scallop color="#ffffff" background="var(--cream)" />
   <Kontakt
     naglowek={site.kontakt.naglowek}
     podtytul={site.kontakt.podtytul}
     firma={site.firma}
   />
+  <Scallop color="var(--petrol-deep)" background="#ffffff" />
   <Footer firma={site.firma} />
 </Layout>

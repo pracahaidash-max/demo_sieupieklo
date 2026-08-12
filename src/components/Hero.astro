@@ -16,22 +16,34 @@ const { eyebrow, naglowek, podtytul, ctaGlowne, ctaDrugie, zaufanie } = Astro.pr
 
 <section class="hero" id="top">
   <div class="wrap hero-inner">
-    <span class="eyebrow">{eyebrow}</span>
-    <h1>{naglowek}</h1>
-    <p class="lede">{podtytul}</p>
-    <div class="cta-row">
-      <a href="#kontakt" class="btn btn-primary">{ctaGlowne}</a>
-      <a href="#opinie" class="btn btn-secondary">{ctaDrugie}</a>
+    <div class="copy">
+      <span class="eyebrow">{eyebrow}</span>
+      <h1>{naglowek}</h1>
+      <p class="lede">{podtytul}</p>
+      <div class="cta-row">
+        <a href="#kontakt" class="btn btn-primary">{ctaGlowne}</a>
+        <a href="#opinie" class="btn btn-secondary">{ctaDrugie}</a>
+      </div>
+
+      <dl class="trust">
+        {zaufanie.map((t) => (
+          <div class="trust-item">
+            <dt>{t.liczba}</dt>
+            <dd>{t.opis}</dd>
+          </div>
+        ))}
+      </dl>
     </div>
 
-    <dl class="trust">
-      {zaufanie.map((t) => (
-        <div class="trust-item">
-          <dt>{t.liczba}</dt>
-          <dd>{t.opis}</dd>
-        </div>
-      ))}
-    </dl>
+    <div class="photo">
+      <span class="confetti c1"></span>
+      <span class="confetti c2"></span>
+      <span class="confetti c3"></span>
+      <figure class="polaroid">
+        <img src="/images/realizacje/d2_ombre_beza.jpg" alt="Tort ombre z bezą — Się Upiekło Wola" width="480" height="480" />
+        <figcaption>Nasza ostatnia realizacja 🍓</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -40,22 +52,28 @@ const { eyebrow, naglowek, podtytul, ctaGlowne, ctaDrugie, zaufanie } = Astro.pr
     padding-top: 3.5rem;
     padding-bottom: 3.5rem;
     background: radial-gradient(900px 420px at 88% -8%, var(--raspberry-soft) 0%, transparent 62%), var(--cream);
-    border-bottom: 1px solid var(--line);
+    overflow: clip;
   }
   .hero-inner {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  .copy {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 1.1rem;
   }
   h1 {
-    font-size: clamp(2.1rem, 4.4vw, 3.35rem);
-    max-width: 18ch;
+    font-size: clamp(2rem, 3.6vw, 3rem);
+    max-width: 16ch;
   }
   .lede {
-    font-size: 1.1rem;
+    font-size: 1.08rem;
     color: var(--ink-soft);
-    max-width: 52ch;
+    max-width: 48ch;
   }
   .cta-row {
     display: flex;
@@ -66,28 +84,71 @@ const { eyebrow, naglowek, podtytul, ctaGlowne, ctaDrugie, zaufanie } = Astro.pr
   .trust {
     display: grid;
     grid-template-columns: repeat(3, auto);
-    gap: 2.5rem;
-    margin: 3rem 0 0;
-    padding-top: 2.25rem;
+    gap: 2rem;
+    margin: 2.75rem 0 0;
+    padding-top: 2rem;
     border-top: 1px solid var(--line);
     width: 100%;
   }
   .trust-item dt {
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: 1.9rem;
+    font-size: 1.7rem;
     color: var(--raspberry-deep);
   }
   .trust-item dd {
     margin: 0.15rem 0 0;
-    font-size: 0.88rem;
+    font-size: 0.84rem;
     color: var(--ink-soft);
-    max-width: 18ch;
+    max-width: 16ch;
   }
-  @media (max-width: 640px) {
-    .trust {
+
+  .photo {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  .polaroid {
+    margin: 0;
+    background: #fff;
+    padding: 0.7rem 0.7rem 1.1rem;
+    border-radius: 6px;
+    box-shadow: 0 20px 40px -18px rgba(44, 30, 24, 0.45);
+    transform: rotate(4deg);
+    max-width: 320px;
+    width: 100%;
+  }
+  .polaroid img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 3px;
+  }
+  .polaroid figcaption {
+    margin-top: 0.6rem;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 0.92rem;
+    color: var(--raspberry-deep);
+  }
+  .confetti {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 0;
+  }
+  .c1 { width: 22px; height: 22px; background: var(--butter); top: -6px; left: 10%; }
+  .c2 { width: 14px; height: 14px; background: var(--mint); bottom: 10%; right: 4%; }
+  .c3 { width: 18px; height: 18px; background: var(--raspberry-soft); bottom: -8px; left: 22%; }
+
+  @media (max-width: 860px) {
+    .hero-inner {
       grid-template-columns: 1fr;
-      gap: 1.25rem;
+    }
+    .photo {
+      order: -1;
+    }
+    .polaroid {
+      max-width: 240px;
     }
   }
 </style>

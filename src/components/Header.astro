@@ -8,7 +8,7 @@ const { nazwa } = Astro.props;
 <header class="header">
   <div class="wrap bar">
     <a href="#top" class="brand">
-      <span class="brand-mark">🍰</span>
+      <img class="brand-mark" src="/images/logo.png" alt="" width="40" height="40" />
       <span class="brand-name">{nazwa}</span>
     </a>
 
@@ -47,7 +47,11 @@ const { nazwa } = Astro.props;
     color: var(--raspberry-deep);
   }
   .brand-mark {
-    font-size: 1.4rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--raspberry-soft);
+    object-fit: cover;
   }
   .brand-name {
     font-family: var(--font-display);
