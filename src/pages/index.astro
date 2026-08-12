@@ -7,6 +7,7 @@ import TopBar from "../components/TopBar.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 import Oferta from "../components/Oferta.astro";
+import Udogodnienia from "../components/Udogodnienia.astro";
 import Realizacje from "../components/Realizacje.astro";
 import JakZamowic from "../components/JakZamowic.astro";
 import Opinie from "../components/Opinie.astro";
@@ -40,6 +41,7 @@ const site = yaml.load(raw) as any;
     zaufanie={site.zaufanie}
   />
   <Oferta oferta={site.oferta} />
+  <Udogodnienia pozycje={site.udogodnienia} />
   <Realizacje realizacje={site.realizacje} />
   <JakZamowic kroki={site.jak_zamowic} />
   <Opinie

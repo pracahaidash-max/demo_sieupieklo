@@ -86,3 +86,8 @@ collections:
             fields:
               - { label: "Nagłówek", name: "naglowek", widget: "string" }
               - { label: "Podtytuł", name: "podtytul", widget: "text" }
+
+          - label: "Udogodnienia (odznaki)"
+            name: "udogodnienia"
+            widget: "list"
+            field: { label: "Pozycja", name: "pozycja", widget: "string" }
